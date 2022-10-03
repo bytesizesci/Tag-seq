@@ -1,11 +1,14 @@
 #!/bin/bash
 #
 #SBATCH --job-name=star_index
-#SBATCH --workdir /home/kristen1/22projects/DOProgenitor
+# #SBATCH --workdir /home/kristen1/22projects/DOProgenitor
 #SBATCH --ntasks=30 # Number of cores/threads
 #SBATCH --mem=64000 # Ram in Mb
 #SBATCH --partition=high
 #SBATCH --time=0-01:00:00
+# Create config folder if not present
+#SBATCH -o /home/kristen1/22projects/DOProgenitor/config/star_index-%A_%a.out
+#SBATCH -e /home/kristen1/22projects/DOProgenitor/config/star_index-%A_%a.err
 
 ##########################################################################################
 # Original Author: Ben Laufer
@@ -36,7 +39,8 @@ echo "Allocated memory: " $MEM
 # Load Modules #
 ################
 
-module load star/2.6.1d
+#module load star/2.6.1d
+module load star/2.6.1a
 
 ###########################
 # Download Genome (FASTA) #

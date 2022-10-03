@@ -1,16 +1,22 @@
 #!/bin/bash
 #
 #SBATCH --job-name=tag-seq
-#SBATCH --workdir /share/lasallelab/Ben/PEBBLES/tag-seq
 #SBATCH --ntasks=8 # Number of cores/threads
 #SBATCH --mem=32000 # Ram in Mb
-#SBATCH --partition=production 
+#SBATCH --partition=high
 #SBATCH --time=0-00:30:00
+#SBATCH -o /home/kristen1/22projects/DOProgenitor/config/tag-seq-%A_%a.out
+#SBATCH -e /home/kristen1/22projects/DOProgenitor/config/tag-seq-%A_%a.err
 
 ##########################################################################################
-# Author: Ben Laufer
+# Original Author: Ben Laufer
 # Email: blaufer@ucdavis.edu 
 # Modified from: https://www.lexogen.com/quantseq-data-analysis/
+#
+# Adapted by: Kristen James
+# Email: krijames@ucdavis.edu
+# Lab: Bennett Lab, USDA-ARS WHNRC
+# Date: 10/03/2022
 ##########################################################################################
 
 ###################
@@ -27,14 +33,15 @@ MEM=$(expr ${SLURM_MEM_PER_CPU} / 1024)
 echo "Allocated threads: " $THREADS
 echo "Allocated memory: " $MEM
 
-################
-# Load Modules #
-################
+#######################
+# Load Modules        #
+# check Farm versions #
+#######################
 
 module load samtools/1.9
-module load fastqc/0.11.7
-module load bbmap/37.68
-module load star/2.6.1d
+module load fastqc/0.11.9
+module load bbmap/38.60
+module load star/2.6.1a
 
 ######################
 # Set Up Environment #
@@ -53,7 +60,7 @@ BAM=${sample}_Aligned.sortedByCoord.out.bam
 #############
 # adjust threads
 
-mkdir -p QC
+mkdir -p QC # make folder QC, nested, and only if it doesn't exist
 
 call="fastqc \
 --outdir QC \

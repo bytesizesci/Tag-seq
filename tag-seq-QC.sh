@@ -1,15 +1,20 @@
 #!/bin/bash
-#
 #SBATCH --job-name=tagQC
-#SBATCH --workdir /share/lasallelab/Ben/PEBBLES/tag-seq
 #SBATCH --ntasks=1 # Number of cores/threads
 #SBATCH --mem=2000 # Ram in Mb
-#SBATCH --partition=production 
+#SBATCH --partition=high 
 #SBATCH --time=0-00:30:00
+#SBATCH -o /home/kristen1/22projects/DOProgenitor/config/tag-seq-QC-%A_%a.out
+#SBATCH -e /home/kristen1/22projects/DOProgenitor/config/tag-seq-QC-%A_%a.err
 
 ##########################################################################################
-# Author: Ben Laufer
+# Original Author: Ben Laufer
 # Email: blaufer@ucdavis.edu 
+#
+# Adapted by: Kristen James
+# Email: krijames@ucdavis.edu
+# Lab: Bennett Lab, USDA-ARS WHNRC
+# Date: 10/03/2022
 ##########################################################################################
 
 ###################
@@ -30,15 +35,15 @@ echo "Allocated memory: " $MEM
 # Load Modules #
 ################
 
-module load multiqc/1.7
+module load multiqc/bio3
 
 ###########
 # MultiQC #
 ###########
 
-call="multiqc
-. \
- --config multiqc_config.yaml"
+call="multiqc ."
+#. \
+# --config multiqc_config.yaml"
 
 echo $call
 eval $call

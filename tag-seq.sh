@@ -40,7 +40,7 @@ echo "Allocated memory: " $MEM
 
 module load samtools/1.9
 module load fastqc/0.11.9
-module load bbmap/38.60
+module load bbmap/38-60
 module load star/2.6.1a
 
 ######################
@@ -106,7 +106,7 @@ eval $call
 
 call="STAR \
 --runThreadN 8 \
---genomeDir /share/lasallelab/Ben/PEBBLES/tag-seq/data/GRCm38/star_100/ \
+--genomeDir /home/kristen1/22projects/DOProgenitor/data/GRCm38/star_100/ \
 --readFilesIn ${trim} \
 --readFilesCommand zcat \
 --outFilterType BySJout \

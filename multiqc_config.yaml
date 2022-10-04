@@ -1,20 +1,20 @@
 # Titles and introductory text
 title: "3’ Tag RNA-seq"
-subtitle: "QC for a custom WGBS workflow"
+subtitle: "QC for a custom 3TagSeq workflow"
 intro_text: "Multiple QC reports to summarise raw data, trimming, alignment.
-report_comment: "This is the LaSalle lab version."
+report_comment: "This is the Bennett lab version - modified from the LaSalle lab version."
 
 # Report Logo
-custom_logo: '/share/lasallelab/programs/CpG_Me/UCDavis.png'
-custom_logo_url: 'http://mmi-lab.ucdavis.edu/wordpress/'
-custom_logo_title: 'LaSalle Lab @ UC Davis'
+#custom_logo: '/share/lasallelab/programs/CpG_Me/UCDavis.png'
+#custom_logo_url: 'http://mmi-lab.ucdavis.edu/wordpress/'
+custom_logo_title: 'Bennett Lab @ UC Davis'
 
 #Project level information
 report_header_info:
-    - Workflow Developer: 'Ben Laufer'
-    - E-mail: 'blaufer@ucdavis.edu'
+    - Workflow Developer: 'Kristen James, adapted from Ben Laufer'
+    - E-mail: 'krijames@ucdavis.edu'
     - Application Type: '3’ Tag RNA-seq'
-    - Project Type: 'PEBBLES'
+    - Project Type: 'DO-Progenitors Liver Expression'
     - Sequencing Platform: 'HiSeq 4000'
     - Sequencing Setup: 'SE 100 SI'
     - Library Kit: 'QuantSeq FWD Kit (Lexogen)'
